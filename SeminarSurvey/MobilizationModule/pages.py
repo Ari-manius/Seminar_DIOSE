@@ -10,7 +10,7 @@ import random
 
 class Welcome(Page):
     form_model = Player
-    form_fields = ['device_type', 'operating_system', 'browser','language','use_of_device', 'time_start']
+    form_fields = ['time_start']
      
         
     def vars_for_template(self):
@@ -33,51 +33,45 @@ class PreTreatment(Page):
                    'pre_support_petition',
                    'pre_attend_protest',
                    'pre_legal_action']
-    
-    @staticmethod
-    def vars_for_template(player: Player):
-        return {
-            'instruction': "Haben Sie jemals eine der folgenden Maßnahmen in Bezug auf ein Handelsproblem ergriffen? [Antworten: Ja/Nein]"
-        }
 
+    def before_next_page(self):
+        # List of available treatments
+        treatments = ['positive', 'neutral', 'negative']
 
-    def before_next_page(player: Player):
-        player.assigned_treatment = random.choice(list(Constants.treatment_texts.keys()))
+        # Assign a random treatment
+        self.participant.vars['assigned_treatment'] = random.choice(treatments)
 
 
 class FramingTreatment(Page):
     form_model = Player
-    form_fields = ['assigned_treatment', 'time_popout']
+    form_fields = ['time_popout']
     
-    @staticmethod
-    def vars_for_template(player: Player):
-        treatment_text = Constants.treatment_texts[player.assigned_treatment]
-        return {
-            'treatment_text': treatment_text
-        }
+    def vars_for_template(self):
+        return {'treatment': self.participant.vars.get('assigned_treatment')} 
+    
 
 
 class ManipulationCheck(Page):
     form_model = Player
     form_fields = ['select_proceed', 'describe_tone', 'mentioned_points', 'overall_message']
 
-    @staticmethod
-    def vars_for_template(player: Player):
-        randomized_options = random.sample(
-            Constants.question_options['mentioned_points'],
-            len(Constants.question_options['mentioned_points'])
-        )
-        randomized_options.append("Keiner der oben genannten Punkte")
-        return {
-            'points_randomized_options': randomized_options
-        }
+    # @staticmethod
+    # def vars_for_template(player: Player):
+    #     randomized_options = random.sample(
+    #         Constants.question_options['mentioned_points'],
+    #         len(Constants.question_options['mentioned_points'])
+    #     )
+    #     randomized_options.append("Keiner der oben genannten Punkte")
+    #     return {
+    #         'points_randomized_options': randomized_options
+    #     }
 
-    @staticmethod
-    def error_message(player: Player, values):
-        if 'mentioned_points' in values and values['mentioned_points']:
-            selected_options = values['mentioned_points'].split(',')
-            if len(selected_options) > 2:
-                return 'Bitte wählen Sie maximal 2 Optionen aus.'
+    # @staticmethod
+    # def error_message(player: Player, values):
+    #     if 'mentioned_points' in values and values['mentioned_points']:
+    #         selected_options = values['mentioned_points'].split(',')
+    #         if len(selected_options) > 2:
+    #             return 'Bitte wählen Sie maximal 2 Optionen aus.'
             
 
 
@@ -98,43 +92,43 @@ class PostTreatment(Page):
                     'post_attend_protest',
                     'post_legal_action' ]
     
-    @staticmethod
-    def vars_for_template(player: Player):
-        concern_randomized_options = random.sample(
-            Constants.question_options['concerns_mercosur'],
-            len(Constants.question_options['concerns_mercosur'])
-        )
-        positive_impact_randomized_options = random.sample(
-            Constants.question_options['positive_impact_mercosur'],
-            len(Constants.question_options['positive_impact_mercosur'])
-        )
-        aspect_mercosur_randomized_options = random.sample(
-            Constants.question_options['aspect_mercosur'],
-            len(Constants.question_options['aspect_mercosur'])
-        )
-        return {
-            'concern_randomized_options': concern_randomized_options,
-            'positive_impact_randomized_options': positive_impact_randomized_options,
-            'aspect_mercosur_randomized_options': aspect_mercosur_randomized_options,
-            'participant_label': player.participant.label
-        }
+    # @staticmethod
+    # def vars_for_template(player: Player):
+    #     concern_randomized_options = random.sample(
+    #         Constants.question_options['concerns_mercosur'],
+    #         len(Constants.question_options['concerns_mercosur'])
+    #     )
+    #     positive_impact_randomized_options = random.sample(
+    #         Constants.question_options['positive_impact_mercosur'],
+    #         len(Constants.question_options['positive_impact_mercosur'])
+    #     )
+    #     aspect_mercosur_randomized_options = random.sample(
+    #         Constants.question_options['aspect_mercosur'],
+    #         len(Constants.question_options['aspect_mercosur'])
+    #     )
+    #     return {
+    #         'concern_randomized_options': concern_randomized_options,
+    #         'positive_impact_randomized_options': positive_impact_randomized_options,
+    #         'aspect_mercosur_randomized_options': aspect_mercosur_randomized_options,
+    #         'participant_label': player.participant.label
+    #    }
 
-    @staticmethod
-    def error_message(player: Player, values):
-        if 'concerns_mercosur' in values and values['concerns_mercosur']:
-            selected_options = values['concerns_mercosur'].split(',')
-            if len(selected_options) > 2:
-                return 'Bitte wählen Sie maximal 2 Sorgen aus.'
+    # @staticmethod
+    # def error_message(player: Player, values):
+    #     if 'concerns_mercosur' in values and values['concerns_mercosur']:
+    #         selected_options = values['concerns_mercosur'].split(',')
+    #         if len(selected_options) > 2:
+    #             return 'Bitte wählen Sie maximal 2 Sorgen aus.'
 
-        if 'positive_impact_mercosur' in values and values['positive_impact_mercosur']:
-            selected_options = values['positive_impact_mercosur'].split(',')
-            if len(selected_options) > 2:
-                return 'Bitte wählen Sie maximal 2 positive Auswirkungen aus.'
+    #     if 'positive_impact_mercosur' in values and values['positive_impact_mercosur']:
+    #         selected_options = values['positive_impact_mercosur'].split(',')
+    #         if len(selected_options) > 2:
+    #             return 'Bitte wählen Sie maximal 2 positive Auswirkungen aus.'
 
-        if 'aspect_mercosur' in values and values['aspect_mercosur']:
-            selected_options = values['aspect_mercosur'].split(',')
-            if len(selected_options) > 2:
-                return 'Bitte wählen Sie maximal 2 Aspekte aus.'
+    #     if 'aspect_mercosur' in values and values['aspect_mercosur']:
+    #         selected_options = values['aspect_mercosur'].split(',')
+    #         if len(selected_options) > 2:
+    #             return 'Bitte wählen Sie maximal 2 Aspekte aus.'
 
 
 

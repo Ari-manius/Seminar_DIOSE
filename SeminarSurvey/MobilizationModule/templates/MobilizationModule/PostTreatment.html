@@ -1,0 +1,77 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+
+{% block title %}
+Seminar Survey - University Konstanz
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2> "Post-Treatment" </h2> <br>
+
+    <div class="mb-3 bg-light border pt-2 pb-2 px-2">
+        {{formfield 'supportive_mercosur'}}
+    </div>
+
+    <div class="mb-3 bg-light border pt-2 pb-2 px-2">
+        {{formfield 'relevant_mercosur'}}
+    </div>
+
+    <div class="mb-3 bg-light border pt-2 pb-2 px-2">
+        {{formfield 'concerns_mercosur'}}
+        {{formfield 'other_concerns_mercosur'}}
+    </div>
+
+    <div class="mb-3 bg-light border pt-2 pb-2 px-2">
+        {{formfield 'positive_impact_mercosur'}}
+        {{formfield 'other_positive_impact_mercosur'}}
+    </div>
+
+    <div class="mb-3 bg-light border pt-2 pb-2 px-2">
+        {{formfield 'aspect_mercosur'}}
+        {{formfield 'other_positive_impact_mercosur'}}
+    </div>
+
+
+
+    <div class="mb-3 bg-light border pt-2 pb-2 px-2">
+        <p>Wie wahrscheinlich ist es, dass Sie eine der folgenden Handlungen durchführen in Bezug auf das Mercosur Abkommen?</p>
+
+        <div class="mb-3 bg-light border pt-2 pb-2 px-2">
+            {{formfield 'post_talk_friends'}}
+        </div>
+
+        <div class="mb-3 bg-light border pt-2 pb-2 px-2">
+            {{formfield 'post_share_socialmedia'}}
+        </div>
+
+        <div class="mb-3 bg-light border pt-2 pb-2 px-2">
+            {{formfield 'post_consider_voting'}}
+        </div>
+
+        <div class="mb-3 bg-light border pt-2 pb-2 px-2">
+            {{formfield 'post_support_petition'}}
+        </div>
+
+        <div class="mb-3 bg-light border pt-2 pb-2 px-2">
+            {{formfield 'post_attend_protest'}}
+        </div>
+
+        <div class="mb-3 bg-light border pt-2 pb-2 px-2">
+            {{formfield 'post_legal_action'}}
+        </div>
+
+    </div>
+
+    <p>Bitte klicken Sie nun auf den "Weiter/Next"-Button, um Ihr Einverständnis mit der Teilnahme an dieser Umfrage zu geben und die Umfrage zu beginnen.</p>
+    <button class="otree-btn-next btn btn-primary next-button otree-next-button">
+        Weiter
+    </button>
+</div>
+{% endblock %}
