@@ -17,45 +17,31 @@ class Constants(BaseConstants):
     name_in_url = 'survey-group2'
     players_per_group = None
     num_rounds = 1
-    question_options = {
-        'mentioned_points': [
-            "Das Abkommen wird das Wirtschaftswachstum fördern und Arbeitsplätze schaffen.",
-            "Das Abkommen zielt darauf ab, die Kosten für Verbraucher zu senken.",
-            "Kritiker warnen vor erhöhtem Wettbewerb für lokale Industrien.",
-        ],
-        'concerns_mercosur': [
-            "Potenzieller Schaden für lokale Landwirte und Unternehmen in der EU.",
-            "Wirtschaftliche Instabilität für gefährdete Sektoren.",
-            "Erhöhte Abhängigkeit von ausländischen Importen.",
-            "Risiko unzureichender Durchsetzung von Regulierungsstandards.",
-        ],
-        'positive_impact_mercosur': [
-            "Geringere Kosten für Verbraucher durch reduzierte Zölle.",
-            "Stärkere internationale Handelsbeziehungen.",
-            "Potenzielles Wirtschaftswachstum in beiden Regionen.",
-            "Erhöhte Exportmöglichkeiten für europäische Unternehmen.",
-        ],
-        'aspect_mercosur': [
-            "Sicherstellung eines fairen Wettbewerbs für lokale Industrien.",
-            "Unterstützung der Arbeitsplatzsicherheit in betroffenen Sektoren.",
-            "Aufrechterhaltung hoher regulatorischer und Sicherheitsstandards.",
-            "Ausgewogenheit zwischen kurzfristigen wirtschaftlichen Gewinnen und langfristigen Auswirkungen.",
-        ],
-    }
-
-    
-    treatment_texts = {
-        'positive': "Das Mercosur-Freihandelsabkommen zielt darauf ab, das Wirtschaftswachstum anzukurbeln, indem neue Märkte erschlossen, Exporte gesteigert und die Zusammenarbeit zwischen der Europäischen Union und südamerikanischen Ländern gefördert werden. Es soll Arbeitsplätze schaffen und die Kosten für Verbraucher durch den Abbau von Handelsbarrieren senken.",
-        'negative': "Das Mercosur-Freihandelsabkommen könnte lokale Industrien durch verstärkten Wettbewerb aus Südamerika schädigen. Es gibt Bedenken hinsichtlich des Verlusts von Arbeitsplätzen in sensiblen Branchen und der Senkung von Regulierungsstandards. Kritiker warnen, dass es möglicherweise nur großen Unternehmen zugutekommt und Bürger benachteiligt.",
-        'neutral': "Das Mercosur-Freihandelsabkommen ist ein Handelsabkommen zwischen der Europäischen Union und südamerikanischen Ländern. Es zielt darauf ab, Handelsbarrieren abzubauen und den Handel zwischen den beiden Regionen zu erleichtern. Das Abkommen birgt sowohl potenzielle Vorteile als auch Herausforderungen, die derzeit Gegenstand öffentlicher Debatten sind."
-    }
-    
-   
+    # question_options = {
+    #     ,
+    #     'concerns_mercosur': [
+    #         "Potenzieller Schaden für lokale Landwirte und Unternehmen in der EU.",
+    #         "Wirtschaftliche Instabilität für gefährdete Sektoren.",
+    #         "Erhöhte Abhängigkeit von ausländischen Importen.",
+    #         "Risiko unzureichender Durchsetzung von Regulierungsstandards.",
+    #     ],
+    #     'positive_impact_mercosur': [
+    #         "Geringere Kosten für Verbraucher durch reduzierte Zölle.",
+    #         "Stärkere internationale Handelsbeziehungen.",
+    #         "Potenzielles Wirtschaftswachstum in beiden Regionen.",
+    #         "Erhöhte Exportmöglichkeiten für europäische Unternehmen.",
+    #     ],
+    #     'aspect_mercosur': [
+    #         "Sicherstellung eines fairen Wettbewerbs für lokale Industrien.",
+    #         "Unterstützung der Arbeitsplatzsicherheit in betroffenen Sektoren.",
+    #         "Aufrechterhaltung hoher regulatorischer und Sicherheitsstandards.",
+    #         "Ausgewogenheit zwischen kurzfristigen wirtschaftlichen Gewinnen und langfristigen Auswirkungen.",
+    #     ],
+    # }
 
 
 class Subsession(BaseSubsession):
     pass
-        
 
 
 class Group(BaseGroup):
@@ -68,8 +54,8 @@ class Player(BasePlayer):
     
     # pretreatment page
     eco_poli_affiliation = models.IntegerField(
-        label="Wie ist Ihre politische Ausrichtung in Bezug auf wirtschaftliche Themen?",
-        choices=[(1, '1 - Umverteilung, Sozialistisch'),
+        label="Wie ist Ihre politische Ausrichtung in Bezug auf wirtschaftliche Themen? (1 - Umverteilung, Sozialistisch / 10 - Konservativ, offene Märkte)",
+        choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
             (4, '4'),
@@ -78,13 +64,13 @@ class Player(BasePlayer):
             (7, '7'),
             (8, '8'),
             (9, '9'),
-            (10, '10 - Konservativ, offene Märkte')],
+            (10, '10')],
         widget=widgets.RadioSelectHorizontal,
     )
 
     soci_poli_affiliation = models.IntegerField(
-        label="Wie ist Ihre politische Ausrichtung in Bezug auf gesellschaftliche Themen?",
-        choices=[(1, '1 - Liberal bezüglich Lebensstile/Kulturen'),
+        label="Wie ist Ihre politische Ausrichtung in Bezug auf gesellschaftliche Themen? (1 - Liberal bezüglich Lebensstile/Kulturen / 10 - Konservativ, traditionelle Familienwerte)",
+        choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
             (4, '4'),
@@ -93,7 +79,7 @@ class Player(BasePlayer):
             (7, '7'),
             (8, '8'),
             (9, '9'),
-            (10, '10 - Konservativ, traditionelle Familienwerte')],
+            (10, '10')],
         widget=widgets.RadioSelectHorizontal,
     )
     
@@ -257,13 +243,18 @@ class Player(BasePlayer):
 
     mentioned_points = models.StringField(
         label="Welche der folgenden Punkte wurden in der Beschreibung des Mercosur-Abkommens erwähnt, die Sie gelesen haben? (Wählen Sie alle aus, die zutreffen.)",
-        choices=["?", "?", "?", "?"],
-        widget=widgets.RadioSelect,
+        choices=[(1, "Das Abkommen wird das Wirtschaftswachstum fördern und Arbeitsplätze schaffen."), 
+                 (2, "Das Abkommen zielt darauf ab, die Kosten für Verbraucher zu senken."),
+                 (3, "Kritiker warnen vor erhöhtem Wettbewerb für lokale Industrien.")],
+        widget= widgets.RadioSelect,
     )
     
     overall_message = models.StringField(
         label="Was war die allgemeine Botschaft der Beschreibung, die Sie über das Mercosur-Abkommen gelesen haben?",
-        choices=["Das Abkommen wurde positiv dargestellt.", "Das Abkommen wurde negativ dargestellt.", "Das Abkommen wurde neutral dargestellt.", "Ich bin mir nicht sicher."],
+        choices=["Das Abkommen wurde positiv dargestellt.", 
+                 "Das Abkommen wurde negativ dargestellt.", 
+                 "Das Abkommen wurde neutral dargestellt.", 
+                 "Ich bin mir nicht sicher."],
         widget=widgets.RadioSelect,
     )
     
@@ -301,7 +292,13 @@ class Player(BasePlayer):
     concerns_mercosur = models.StringField(
         label="3-Was bereitet Ihnen am meisten Sorgen im Zusammenhang mit dem Mercosur-Abkommen? (Wählen Sie bis zu 2 aus)",
         blank=True,
+        choices=[(1, 'Potenzieller Schaden für lokale Landwirte und Unternehmen in der EU.'),
+            (2, 'Wirtschaftliche Instabilität für gefährdete Sektoren.'),
+            (3, 'Erhöhte Abhängigkeit von ausländischen Importen.'),
+            (4, 'Risiko unzureichender Durchsetzung von Regulierungsstandards.')],
+        widget=widgets.RadioSelect,
     )
+
     other_concerns_mercosur = models.StringField(
         blank=True,
         label="• Sonstiges(bitte angeben)......:"

@@ -91,44 +91,30 @@ class PostTreatment(Page):
                     'post_support_petition',
                     'post_attend_protest',
                     'post_legal_action' ]
-    
-    # @staticmethod
-    # def vars_for_template(player: Player):
-    #     concern_randomized_options = random.sample(
-    #         Constants.question_options['concerns_mercosur'],
-    #         len(Constants.question_options['concerns_mercosur'])
-    #     )
-    #     positive_impact_randomized_options = random.sample(
-    #         Constants.question_options['positive_impact_mercosur'],
-    #         len(Constants.question_options['positive_impact_mercosur'])
-    #     )
-    #     aspect_mercosur_randomized_options = random.sample(
-    #         Constants.question_options['aspect_mercosur'],
-    #         len(Constants.question_options['aspect_mercosur'])
-    #     )
-    #     return {
-    #         'concern_randomized_options': concern_randomized_options,
-    #         'positive_impact_randomized_options': positive_impact_randomized_options,
-    #         'aspect_mercosur_randomized_options': aspect_mercosur_randomized_options,
-    #         'participant_label': player.participant.label
-    #    }
 
-    # @staticmethod
-    # def error_message(player: Player, values):
-    #     if 'concerns_mercosur' in values and values['concerns_mercosur']:
-    #         selected_options = values['concerns_mercosur'].split(',')
-    #         if len(selected_options) > 2:
-    #             return 'Bitte wählen Sie maximal 2 Sorgen aus.'
+    def error_message(self, values):
+        # Parse the selected options
+        concern_selected_options = values.get('concerns_mercosur', '[]')
+        concern_selected_list = json.loads(concern_selected_options) if concern_selected_options else []
 
-    #     if 'positive_impact_mercosur' in values and values['positive_impact_mercosur']:
-    #         selected_options = values['positive_impact_mercosur'].split(',')
-    #         if len(selected_options) > 2:
-    #             return 'Bitte wählen Sie maximal 2 positive Auswirkungen aus.'
+        # Check the number of selected options
+        if len(concern_selected_list) > 2:
+            return "Bitte wählen Sie maximal 2 Optionen aus."
+                
+        positive_selected_options = values.get('positive_impact_mercosur', '[]')
+        positive_selected_list = json.loads(positive_selected_options) if positive_selected_options else []
 
-    #     if 'aspect_mercosur' in values and values['aspect_mercosur']:
-    #         selected_options = values['aspect_mercosur'].split(',')
-    #         if len(selected_options) > 2:
-    #             return 'Bitte wählen Sie maximal 2 Aspekte aus.'
+        # Check the number of selected options
+        if len(positive_selected_list) > 2:
+            return "Bitte wählen Sie maximal 2 Optionen aus."
+        
+
+        aspect_selected_options = values.get('aspect_mercosur', '[]')
+        aspect_selected_list = json.loads(aspect_selected_options) if aspect_selected_options else []
+
+        # Check the number of selected options
+        if len(aspect_selected_list) > 2:
+            return "Bitte wählen Sie maximal 2 Optionen aus."
 
 
 
