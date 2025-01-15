@@ -17,29 +17,7 @@ class Constants(BaseConstants):
     name_in_url = 'survey-group2'
     players_per_group = None
     num_rounds = 1
-    # question_options = {
-    #     ,
-    #     'concerns_mercosur': [
-    #         "Potenzieller Schaden für lokale Landwirte und Unternehmen in der EU.",
-    #         "Wirtschaftliche Instabilität für gefährdete Sektoren.",
-    #         "Erhöhte Abhängigkeit von ausländischen Importen.",
-    #         "Risiko unzureichender Durchsetzung von Regulierungsstandards.",
-    #     ],
-    #     'positive_impact_mercosur': [
-    #         "Geringere Kosten für Verbraucher durch reduzierte Zölle.",
-    #         "Stärkere internationale Handelsbeziehungen.",
-    #         "Potenzielles Wirtschaftswachstum in beiden Regionen.",
-    #         "Erhöhte Exportmöglichkeiten für europäische Unternehmen.",
-    #     ],
-    #     'aspect_mercosur': [
-    #         "Sicherstellung eines fairen Wettbewerbs für lokale Industrien.",
-    #         "Unterstützung der Arbeitsplatzsicherheit in betroffenen Sektoren.",
-    #         "Aufrechterhaltung hoher regulatorischer und Sicherheitsstandards.",
-    #         "Ausgewogenheit zwischen kurzfristigen wirtschaftlichen Gewinnen und langfristigen Auswirkungen.",
-    #     ],
-    # }
-
-
+    
 class Subsession(BaseSubsession):
     pass
 
@@ -69,7 +47,7 @@ class Player(BasePlayer):
     )
 
     soci_poli_affiliation = models.IntegerField(
-        label="Wie ist Ihre politische Ausrichtung in Bezug auf gesellschaftliche Themen? (1 - Liberal bezüglich Lebensstile/Kulturen / 10 - Konservativ, traditionelle Familienwerte)",
+        label="Wie ist Ihre politische Ausrichtung in Bezug auf gesellschaftliche Themen? (1-Liberal bezüglich Lebensstile-Kulturen / 10-Konservativ, traditionelle Familienwerte)",
         choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
@@ -99,8 +77,8 @@ class Player(BasePlayer):
     )
 
     mercosur_freetrade = models.IntegerField(
-        label="Wie vertraut sind Sie mit dem Mercosur-Freihandelsabkommen?",
-        choices=[(1, '1 - Überhaupt nicht vertraut'),
+        label="Wie vertraut sind Sie mit dem Mercosur-Freihandelsabkommen?(1-Überhaupt nicht vertraut/ 10-Sehr vertraut)",
+        choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
             (4, '4'),
@@ -109,13 +87,13 @@ class Player(BasePlayer):
             (7, '7'),
             (8, '8'),
             (9, '9'),
-            (10, '10 - Sehr vertraut')],
+            (10, '10')],
         widget=widgets.RadioSelectHorizontal,
     )
 
     supportive_freetrade = models.IntegerField(
-        label="Wie sehr unterstüzen Sie im Allgemeinen Freihandelsabkommen?",
-        choices=[(1, '1 - Keine Unterstüzung'),
+        label="Wie sehr unterstüzen Sie im Allgemeinen Freihandelsabkommen? (1-Keine Unterstüzung / 10-Volle Unterstüzung)",
+        choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
             (4, '4'),
@@ -124,13 +102,13 @@ class Player(BasePlayer):
             (7, '7'),
             (8, '8'),
             (9, '9'),
-            (10, '10 - Volle Unterstüzung')],
+            (10, '10')],
         widget=widgets.RadioSelectHorizontal,
     )
 
     trust_government = models.IntegerField(
-        label="Wie sehr vertrauen Sie der Regierung (Poilitik/Staat), faire Handelsabkommen auszuhandeln?",
-        choices=[(1, '1 - Kein Vertrauen'),
+        label="Wie sehr vertrauen Sie der Regierung (Poilitik/Staat), faire Handelsabkommen auszuhandeln?(1-Kein Vertrauen/10-Volles Vertrauen)",
+        choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
             (4, '4'),
@@ -139,13 +117,13 @@ class Player(BasePlayer):
             (7, '7'),
             (8, '8'),
             (9, '9'),
-            (10, '10 - Volles Vertrauen')],
+            (10, '10')],
         widget=widgets.RadioSelectHorizontal,
     )
 
     trust_media = models.IntegerField(
-        label="Wie sehr vertrauen Sie der Medienberichterstattung über internationale Handelsabkommen?",
-        choices=[(1, '1 - Kein Vertrauen'),
+        label="Wie sehr vertrauen Sie der Medienberichterstattung über internationale Handelsabkommen?(1-Kein Vertrauen/10-Volles Vertrauen)",
+        choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
             (4, '4'),
@@ -154,7 +132,7 @@ class Player(BasePlayer):
             (7, '7'),
             (8, '8'),
             (9, '9'),
-            (10, '10 - Volles Vertrauen')],
+            (10, '10')],
         widget=widgets.RadioSelectHorizontal,
     )
 
@@ -208,8 +186,6 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal
     )
 
-    #hidden_input = models.IntegerField(initial=50, blank=True)
-
 # Framing Treatment Page
     assigned_treatment = models.StringField()
     treatment = models.StringField()
@@ -227,8 +203,8 @@ class Player(BasePlayer):
     )
 
     describe_tone = models.IntegerField(
-        label="Wie würden Sie den Ton der Beschreibung des Mercosur-Abkommens einschätzen, die Sie zuvor gelesen haben?",
-        choices=[(1, '1 - Sehr negativ'),
+        label="Wie würden Sie den Ton der Beschreibung des Mercosur-Abkommens einschätzen, die Sie zuvor gelesen haben?(1-Sehr negativ/10-Sehr positiv)",
+        choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
             (4, '4'),
@@ -237,7 +213,7 @@ class Player(BasePlayer):
             (7, '7'),
             (8, '8'),
             (9, '9'),
-            (10, '10 - Sehr positiv')],
+            (10, '10')],
         widget=widgets.RadioSelectHorizontal
     )
 
@@ -251,17 +227,17 @@ class Player(BasePlayer):
     
     overall_message = models.StringField(
         label="Was war die allgemeine Botschaft der Beschreibung, die Sie über das Mercosur-Abkommen gelesen haben?",
-        choices=["Das Abkommen wurde positiv dargestellt.", 
-                 "Das Abkommen wurde negativ dargestellt.", 
-                 "Das Abkommen wurde neutral dargestellt.", 
-                 "Ich bin mir nicht sicher."],
+        choices=[(1,"Das Abkommen wurde positiv dargestellt."), 
+                 (2,"Das Abkommen wurde negativ dargestellt."), 
+                 (3,"Das Abkommen wurde neutral dargestellt."), 
+                 (4,"Ich bin mir nicht sicher.")],
         widget=widgets.RadioSelect,
     )
     
 # posttreatment page
     supportive_mercosur = models.IntegerField(
-        label="Nach dem Lesen dieser Beschreibung, wie unterstützend stehen Sie dem Mercosur-Abkommen gegenüber?",
-        choices=[(1, '1 - Keine Unterstützung'),
+        label="1-Nach dem Lesen dieser Beschreibung, wie unterstützend stehen Sie dem Mercosur-Abkommen gegenüber?(1-Keine Unterstützung /10-Volle Unterstützung)",
+        choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
             (4, '4'),
@@ -270,13 +246,13 @@ class Player(BasePlayer):
             (7, '7'),
             (8, '8'),
             (9, '9'),
-            (10, '10 - Volle Unterstützung')],
+            (10, '10')],
         widget=widgets.RadioSelect,
     )
 
     relevant_mercosur = models.IntegerField(
-        label="2- Wie relevant erscheint Ihnen persönlich das Mercosur-Abkommen?",
-        choices=[(1, '1 - Nicht relevant'),
+        label="2- Wie relevant erscheint Ihnen persönlich das Mercosur-Abkommen?(1-Nicht relevant/10-Sehr relevant)",
+        choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
             (4, '4'),
@@ -285,7 +261,7 @@ class Player(BasePlayer):
             (7, '7'),
             (8, '8'),
             (9, '9'),
-            (10, '10 - Sehr relevant')],
+            (10, '10')],
         widget=widgets.RadioSelect,
     )  
 
@@ -307,7 +283,13 @@ class Player(BasePlayer):
     positive_impact_mercosur = models.StringField(
         label="4- Was halten Sie für die positivste Auswirkung des Mercosur-Abkommens? (Wählen Sie bis zu 2 aus)",
         blank=True,
+        choices=[(1,"Geringere Kosten für Verbraucher durch reduzierte Zölle."),
+            (2,"Stärkere internationale Handelsbeziehungen."),
+            (3,"Potenzielles Wirtschaftswachstum in beiden Regionen."),
+            (4,"Erhöhte Exportmöglichkeiten für europäische Unternehmen.")],
+        widget=widgets.RadioSelect 
     )
+    
     other_positive_impact_mercosur = models.StringField(
         blank=True,
         label="• Sonstiges(bitte angeben)......:"
@@ -316,15 +298,21 @@ class Player(BasePlayer):
     aspect_mercosur = models.StringField(
         label="5- Welcher Aspekt des Mercosur-Abkommens erfordert Ihrer Meinung nach die größte Aufmerksamkeit? (Wählen Sie bis zu 2 aus)",
         blank=True,
+        choices=[(1,"Sicherstellung eines fairen Wettbewerbs für lokale Industrien."),
+            (2,"Unterstützung der Arbeitsplatzsicherheit in betroffenen Sektoren."),
+            (3,"Aufrechterhaltung hoher regulatorischer und Sicherheitsstandards."),
+            (4,"Ausgewogenheit zwischen kurzfristigen wirtschaftlichen Gewinnen und langfristigen Auswirkungen.")]
+        widget=widgets.RadioSelect        
     )
+    
     other_aspect_mercosur = models.StringField(
         blank=True,
         label="• Sonstiges(bitte angeben)......:"
     )
 
     post_talk_friends = models.IntegerField(
-        label="• Mit Freunden oder der Familie darüber gesprochen:",
-        choices=[(1, '1 - Unwahrscheinlich'),
+        label="• Mit Freunden oder der Familie darüber gesprochen: (1-Unwahrscheinlich/10-Sehr wahrscheinlich)" ,
+        choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
             (4, '4'),
@@ -333,12 +321,12 @@ class Player(BasePlayer):
             (7, '7'),
             (8, '8'),
             (9, '9'),
-            (10, '10 - Sehr wahrscheinlich')],
+            (10, '10')],
         widget=widgets.RadioSelectHorizontal
     )
     post_share_socialmedia = models.IntegerField(
-        label="• Ihre Meinung in sozialen Medien geteilt:",
-        choices=[(1, '1 - Unwahrscheinlich'),
+        label="• Ihre Meinung in sozialen Medien geteilt:(1-Unwahrscheinlich/ 10-Sehr wahrscheinlich)",
+        choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
             (4, '4'),
@@ -347,12 +335,13 @@ class Player(BasePlayer):
             (7, '7'),
             (8, '8'),
             (9, '9'),
-            (10, '10 - Sehr wahrscheinlich')],
+            (10, '10')],
         widget=widgets.RadioSelectHorizontal
     )
+    
     post_consider_voting = models.IntegerField(
-        label="• Die Haltung eines Kandidaten bei Wahlen berücksichtigt:",
-        choices=[(1, '1 - Unwahrscheinlich'),
+        label="• Die Haltung eines Kandidaten bei Wahlen berücksichtigt:(1-Unwahrscheinlich/10-Sehr wahrscheinlich)",
+        choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
             (4, '4'),
@@ -361,12 +350,12 @@ class Player(BasePlayer):
             (7, '7'),
             (8, '8'),
             (9, '9'),
-            (10, '10 - Sehr wahrscheinlich')],
+            (10, '10')],
         widget=widgets.RadioSelectHorizontal
     )
     post_support_petition = models.IntegerField(
-        label="Eine Online-Petition unterstützt:",
-        choices=[(1, '1 - Unwahrscheinlich'),
+        label="Eine Online-Petition unterstützt: (1-Unwahrscheinlich/10-Sehr wahrscheinlich)",
+        choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
             (4, '4'),
@@ -375,12 +364,12 @@ class Player(BasePlayer):
             (7, '7'),
             (8, '8'),
             (9, '9'),
-            (10, '10 - Sehr wahrscheinlich')],
+            (10, '10')],
         widget=widgets.RadioSelectHorizontal
     )
     post_attend_protest = models.IntegerField(
-        label="An einer Demonstration oder einem Protest teilgenommen:",
-        choices=[(1, '1 - Unwahrscheinlich'),
+        label="An einer Demonstration oder einem Protest teilgenommen: (1-Unwahrscheinlich /10-Sehr wahrscheinlich)",
+        choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
             (4, '4'),
@@ -389,12 +378,12 @@ class Player(BasePlayer):
             (7, '7'),
             (8, '8'),
             (9, '9'),
-            (10, '10 - Sehr wahrscheinlich')],
+            (10, '10')],
         widget=widgets.RadioSelectHorizontal
     )
     post_legal_action = models.IntegerField(
-        label="Rechtliche Schritte in Form einer Sammelklage eingeleitet:",
-        choices=[(1, '1 - Unwahrscheinlich'),
+        label="Rechtliche Schritte in Form einer Sammelklage eingeleitet: (1-Unwahrscheinlich/10-Sehr wahrscheinlich)",
+        choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
             (4, '4'),
@@ -403,7 +392,7 @@ class Player(BasePlayer):
             (7, '7'),
             (8, '8'),
             (9, '9'),
-            (10, '10 - Sehr wahrscheinlich')],
+            (10, '10')],
         widget=widgets.RadioSelectHorizontal
     )
     
