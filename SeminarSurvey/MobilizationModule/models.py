@@ -84,8 +84,8 @@ class Player(BasePlayer):
     )
     
     concept_freetrade = models.IntegerField(
-        label="Wie vertraut sind Sie mit dem Konzept von Freihandelsabkommen?",
-        choices=[(1, '1 - Überhaupt nicht vertraut'),
+        label="Wie vertraut sind Sie mit dem Konzept von Freihandelsabkommen? (1-Überhaupt nicht vertraut/ 10-Sehr vertraut)",
+        choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
             (4, '4'),
@@ -94,7 +94,7 @@ class Player(BasePlayer):
             (7, '7'),
             (8, '8'),
             (9, '9'),
-            (10, '10 - Sehr vertraut')],
+            (10, '10')],
         widget=widgets.RadioSelectHorizontal,
     )
 
