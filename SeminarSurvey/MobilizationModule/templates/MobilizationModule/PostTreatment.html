@@ -23,25 +23,36 @@ Seminar Survey - University Konstanz
         {{formfield 'relevant_mercosur'}}
     </div>
 
-    <div class="mb-3 bg-light border pt-2 pb-2 px-2">
-        {{formfield 'concerns_mercosur'}}
-        {{formfield 'other_concerns_mercosur'}}
+    <div class="mb-3 bg-light border pt-2 pb-2 px-2 ">
+        <p>Was bereitet Ihnen am meisten Sorgen im Zusammenhang mit dem Mercosur-Abkommen? <i>(Wählen Sie bis zu 2 aus)</i></p>
+        <div><input type="checkbox" name="concerns_mercosur_1" value="1"> Potenzieller Schaden für lokale Landwirte und Unternehmen in der EU.</div>
+        <div><input type="checkbox" name="concerns_mercosur_2" value="1"> Wirtschaftliche Instabilität für gefährdete Sektoren.</div>
+        <div><input type="checkbox" name="concerns_mercosur_3" value="1"> Erhöhte Abhängigkeit von ausländischen Importen.</div>
+        <div><input type="checkbox" name="concerns_mercosur_4" value="1"> Risiko unzureichender Durchsetzung von Regulierungsstandards.</div>
+        <div>{{formfield 'other_concerns_mercosur'}}</div>
     </div>
 
-    <div class="mb-3 bg-light border pt-2 pb-2 px-2">
-        {{formfield 'positive_impact_mercosur'}}
-        {{formfield 'other_positive_impact_mercosur'}}
+    <div class="mb-3 bg-light border pt-2 pb-2 px-2 ">
+        <p>Was halten Sie für die positivste Auswirkung des Mercosur-Abkommens? <i>(Wählen Sie bis zu 2 aus)</i></p>
+        <div><input type="checkbox" name="positive_impact_mercosur_1" value="1"> Geringere Kosten für Verbraucher durch reduzierte Zölle.</div>
+        <div><input type="checkbox" name="positive_impact_mercosur_2" value="1"> Stärkere internationale Handelsbeziehungen.</div>
+        <div><input type="checkbox" name="positive_impact_mercosur_3" value="1"> Potenzielles Wirtschaftswachstum in beiden Regionen.</div>
+        <div><input type="checkbox" name="positive_impact_mercosur_4" value="1"> Erhöhte Exportmöglichkeiten für europäische Unternehmen.</div>
+        <div>{{formfield 'other_positive_impact_mercosur'}}</div>
     </div>
 
-    <div class="mb-3 bg-light border pt-2 pb-2 px-2">
-        {{formfield 'aspect_mercosur'}}
-        {{formfield 'other_positive_impact_mercosur'}}
+    <div class="mb-3 bg-light border pt-2 pb-2 px-2 ">
+        <p>Welcher Aspekt des Mercosur-Abkommens erfordert Ihrer Meinung nach die größte Aufmerksamkeit? <i>(Wählen Sie bis zu 2 aus)</i></p>
+        <div><input type="checkbox" name="aspect_mercosur_1" value="1"> Sicherstellung eines fairen Wettbewerbs für lokale Industrien.</div>
+        <div><input type="checkbox" name="aspect_mercosur_2" value="1"> Unterstützung der Arbeitsplatzsicherheit in betroffenen Sektoren.</div>
+        <div><input type="checkbox" name="aspect_mercosur_3" value="1"> Aufrechterhaltung hoher regulatorischer und Sicherheitsstandards.</div>
+        <div><input type="checkbox" name="aspect_mercosur_4" value="1"> Ausgewogenheit zwischen kurzfristigen wirtschaftlichen Gewinnen und langfristigen Auswirkungen.</div>
+        <div>{{formfield 'other_aspect_mercosur'}}</div>
     </div>
 
 
-
     <div class="mb-3 bg-light border pt-2 pb-2 px-2">
-        <p>Wie wahrscheinlich ist es, dass Sie eine der folgenden Handlungen durchführen in Bezug auf das Mercosur Abkommen?</p>
+        <p>Wie wahrscheinlich ist es, dass Sie eine der folgenden Handlungen durchführen in Bezug auf das Mercosur Handelsabkommen?</p>
 
         <div class="mb-3 bg-light border pt-2 pb-2 px-2">
             {{formfield 'post_talk_friends'}}
@@ -69,7 +80,7 @@ Seminar Survey - University Konstanz
 
     </div>
 
-    <p>Bitte klicken Sie nun auf den "Weiter/Next"-Button, um Ihr Einverständnis mit der Teilnahme an dieser Umfrage zu geben und die Umfrage zu beginnen.</p>
+    <p>Bitte klicken Sie nun auf den "Weiter"-Button, um fortzufahren.</p>
     <button class="otree-btn-next btn btn-primary next-button otree-next-button">
         Weiter
     </button>

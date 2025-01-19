@@ -19,10 +19,10 @@ Seminar Survey - University Konstanz
         {% if treatment == 'positive' %}
             <p> Das Mercosur-Freihandelsabkommen zielt darauf ab, das Wirtschaftswachstum anzukurbeln, indem neue Märkte erschlossen, Exporte gesteigert und die Zusammenarbeit zwischen der Europäischen Union und südamerikanischen Ländern gefördert werden. Es soll Arbeitsplätze schaffen und die Kosten für Verbraucher durch den Abbau von Handelsbarrieren senken.</p>
             <!-- Display positive treatment content here -->
-        {% elif treatment == 'neutral' %}
+        {% elif treatment == 'negative' %}
             <p> Das Mercosur-Freihandelsabkommen könnte lokale Industrien durch verstärkten Wettbewerb aus Südamerika schädigen. Es gibt Bedenken hinsichtlich des Verlusts von Arbeitsplätzen in sensiblen Branchen und der Senkung von Regulierungsstandards. Kritiker warnen, dass es möglicherweise nur großen Unternehmen zugutekommt und Bürger benachteiligt.</p>
             <!-- Display neutral treatment content here -->
-        {% elif treatment == 'negative' %}
+        {% elif treatment == 'neutral' %}
             <p> Das Mercosur-Freihandelsabkommen ist ein Handelsabkommen zwischen der Europäischen Union und südamerikanischen Ländern. Es zielt darauf ab, Handelsbarrieren abzubauen und den Handel zwischen den beiden Regionen zu erleichtern. Das Abkommen birgt sowohl potenzielle Vorteile als auch Herausforderungen, die derzeit Gegenstand öffentlicher Debatten sind.</p>
             <!-- Display negative treatment content here -->
         {% else %}
@@ -31,9 +31,9 @@ Seminar Survey - University Konstanz
         
     </div>
 
-    <p>Bitte klicken Sie nun auf den "Weiter/Next"-Button, um Ihr Einverständnis mit der Teilnahme an dieser Umfrage zu geben und die Umfrage zu beginnen.</p>
+    <p>Bitte klicken Sie nun auf den "Nicht-Weiter" Button, um fortzufahren.</p>
     <button class="otree-btn-next btn btn-primary next-button otree-next-button">
-        Weiter
+        Nicht-Weiter
     </button>
 </div>
 {% endblock %}

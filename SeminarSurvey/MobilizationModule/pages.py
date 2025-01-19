@@ -4,6 +4,7 @@ from ._builtin import Page, WaitPage
 from .models import Constants, Player
 from . import *
 import random
+import json
 
 #from survey_example_appfolder.HelperFunctions import detect_screenout_age, detect_screenout_eligible, detect_quota
 
@@ -40,6 +41,7 @@ class PreTreatment(Page):
 
         # Assign a random treatment
         self.participant.vars['assigned_treatment'] = random.choice(treatments)
+        self.player.treatment = self.participant.vars['assigned_treatment']
 
 
 class FramingTreatment(Page):
@@ -53,7 +55,7 @@ class FramingTreatment(Page):
 
 class ManipulationCheck(Page):
     form_model = Player
-    form_fields = ['select_proceed', 'describe_tone', 'mentioned_points', 'overall_message']
+    form_fields = ['select_proceed', 'describe_tone', 'mentioned_points_1', 'mentioned_points_2', 'mentioned_points_3', 'overall_message']
 
     # @staticmethod
     # def vars_for_template(player: Player):
@@ -79,11 +81,20 @@ class PostTreatment(Page):
     form_model = Player
     form_fields = ['supportive_mercosur',
                     'relevant_mercosur',
-                    'concerns_mercosur', 
+                    'concerns_mercosur_1', 
+                    'concerns_mercosur_2',
+                    'concerns_mercosur_3',
+                    'concerns_mercosur_4',
                     'other_concerns_mercosur',
-                    'positive_impact_mercosur',
+                    'positive_impact_mercosur_1',
+                    'positive_impact_mercosur_2',
+                    'positive_impact_mercosur_3',
+                    'positive_impact_mercosur_4',
                     'other_positive_impact_mercosur',
-                    'aspect_mercosur',
+                    'aspect_mercosur_1',
+                    'aspect_mercosur_2',
+                    'aspect_mercosur_3',
+                    'aspect_mercosur_4',
                     'other_aspect_mercosur',
                     'post_talk_friends',
                     'post_share_socialmedia',
