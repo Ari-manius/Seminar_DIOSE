@@ -30,9 +30,9 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     time_start = models.StringField(initial="-999")
     
-    # pretreatment page
+    # Keep political attributes in Pretest or move to Demographics?
     eco_poli_affiliation = models.IntegerField(
-        label="Wie ist Ihre politische Ausrichtung in Bezug auf wirtschaftliche Themen? (1: Umverteilung, Sozialistisch - 10: Konservativ, offene Märkte)",
+        label="<b>Wie ist Ihre politische Ausrichtung in Bezug auf die Wirtschaft?</b> <i>(1: Umverteilung, Sozialistisch - 10: Konservativ, offene Märkte)</i>",
         choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
@@ -45,9 +45,8 @@ class Player(BasePlayer):
             (10, '10')],
         widget=widgets.RadioSelectHorizontal,
     )
-
     soci_poli_affiliation = models.IntegerField(
-        label="Wie ist Ihre politische Ausrichtung in Bezug auf gesellschaftliche Themen? (1: Liberal bezüglich Lebensstile & Kulturen - 10: Konservativ, traditionelle Familienwerte)",
+        label="<b>Wie ist Ihre politische Ausrichtung in Bezug auf gesellschaftliche Themen?</b> <i>(1: Liberal bezüglich Lebensstile & Kulturen - 10: Konservativ, traditionelle Familienwerte)</i>",
         choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
@@ -61,8 +60,9 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal,
     )
     
+    # Pre-Treatment 
     concept_freetrade = models.IntegerField(
-        label="Wie vertraut sind Sie mit dem Thema und Konzept von Freihandelsabkommen? (1: Überhaupt nicht vertraut - 10:Sehr vertraut)",
+        label="Wie vertraut sind Sie mit dem Konzept von Freihandelsabkommen? (1: Überhaupt nicht vertraut - 10: Sehr vertraut)",
         choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
@@ -92,7 +92,7 @@ class Player(BasePlayer):
     )
 
     supportive_freetrade = models.IntegerField(
-        label="Wie sehr unterstüzen Sie im Allgemeinen Freihandelsabkommen? (1: Keine Unterstüzung - 10: Volle Unterstüzung)",
+        label="Wie unterstützend stehen Sie im Allgemeinen Freihandelsabkommen gegenüber? (1: Keine Unterstüzung - 10: Volle Unterstüzung)",
         choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
@@ -191,17 +191,18 @@ class Player(BasePlayer):
     treatment = models.StringField()
     time_popout = models.StringField(initial='-999',blank=True)
 
-
-#manipulation checks page
     select_proceed = models.BooleanField(
-        label="Sie haben das Ende des Experiments erreicht. Um fortzufahren, wählen Sie bitte 'Nein' unten aus.", #to be changed not a fan of this type of question 
-        choices=[
-            [True, "Ja"],
-            [False, "Nein"]
-        ],
-        widget=widgets.RadioSelectHorizontal
+    blank=False,
+    label="Um zu bestätigen das Sie den Text gelesen haben, wählen Sie bitte 'Nein' aus.", #to be changed not a fan of this type of question 
+    choices=[
+        [True, "Ja"],
+        [False, "Nein"]
+    ],
+    widget=widgets.RadioSelectHorizontal
     )
 
+
+#manipulation checks page
     describe_tone = models.IntegerField(
         label="Wie würden Sie den Ton der Beschreibung des Mercosur-Abkommens einschätzen, die Sie zuvor gelesen haben? (1: Sehr negativ - 10: Sehr positiv)",
         choices=[(1, '1'),
@@ -220,6 +221,7 @@ class Player(BasePlayer):
     mentioned_points_1 = models.IntegerField(blank=True, max=2, min=1, label="")
     mentioned_points_2 = models.IntegerField(blank=True, max=2, min=1, label="")
     mentioned_points_3 = models.IntegerField(blank=True, max=2, min=1, label="")
+    mentioned_points_4 = models.IntegerField(blank=True, max=2, min=1, label="")
     
     overall_message = models.StringField(
         label="Was war die allgemeine Botschaft der Beschreibung, die Sie über das Mercosur-Abkommen gelesen haben?",
@@ -232,7 +234,7 @@ class Player(BasePlayer):
     
 # posttreatment page
     supportive_mercosur = models.IntegerField(
-        label="Nach dem Lesen dieser Beschreibung, wie unterstützend stehen Sie dem Mercosur-Abkommen gegenüber? (1: Keine Unterstützung - 10: Volle Unterstützung)",
+        label="Nach dem Lesen dieser Beschreibung, wie unterstützend stehen Sie dem Mercosur-Abkommen gegenüber? (1: Nicht unterstützend - 10: Sehr unterstützend)",
         choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
@@ -243,7 +245,7 @@ class Player(BasePlayer):
             (8, '8'),
             (9, '9'),
             (10, '10')],
-        widget=widgets.RadioSelect,
+        widget=widgets.RadioSelectHorizontal,
     )
 
     relevant_mercosur = models.IntegerField(
@@ -258,7 +260,7 @@ class Player(BasePlayer):
             (8, '8'),
             (9, '9'),
             (10, '10')],
-        widget=widgets.RadioSelect,
+        widget=widgets.RadioSelectHorizontal,
     )  
 
     # concerns_mercosur = models.StringField(
@@ -308,7 +310,7 @@ class Player(BasePlayer):
 
     #Wie wahrscheinlich ist es, dass Sie eine der folgenden Handlungen durchführen in Bezug auf das Mercosur Handelsabkommen?
     post_talk_friends = models.IntegerField(
-        label="• Mit Freunden oder der Familie darüber sprechen: (1: Unwahrscheinlich - 10: Sehr wahrscheinlich)" ,
+        label="• Mit Freunden oder der Familie darüber sprechen: (1: Sehr Unwahrscheinlich - 10: Sehr wahrscheinlich)" ,
         choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
@@ -322,7 +324,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal
     )
     post_share_socialmedia = models.IntegerField(
-        label="• Ihre Meinung in sozialen Medien teilen: (1: Unwahrscheinlich - 10: Sehr wahrscheinlich)",
+        label="• Ihre Meinung in sozialen Medien teilen: (1: Sehr Unwahrscheinlich - 10: Sehr wahrscheinlich)",
         choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
@@ -337,7 +339,7 @@ class Player(BasePlayer):
     )
     
     post_consider_voting = models.IntegerField(
-        label="• Die Haltung eines Kandidaten bei Wahlen berücksichtigen: (1: Unwahrscheinlich - 10: Sehr wahrscheinlich)",
+        label="• Die Haltung eines Kandidaten bei Wahlen berücksichtigen: (1: Sehr Unwahrscheinlich - 10: Sehr wahrscheinlich)",
         choices=[(1, '1'),
             (2, '2'),
             (3, '3'),
@@ -379,7 +381,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal
     )
     post_legal_action = models.IntegerField(
-        label="Rechtliche Schritte in Form einer Sammelklage einleiten: <i>(1: Sehr Unwahrscheinlich - 10: Sehr wahrscheinlich)</i>",
+        label="Rechtliche Schritte etwa in Form einer Sammelklage einleiten: <i>(1: Sehr Unwahrscheinlich - 10: Sehr wahrscheinlich)</i>",
         choices=[(1, '1'),
             (2, '2'),
             (3, '3'),

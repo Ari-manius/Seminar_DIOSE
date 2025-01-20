@@ -46,7 +46,7 @@ class PreTreatment(Page):
 
 class FramingTreatment(Page):
     form_model = Player
-    form_fields = ['time_popout']
+    form_fields = ['time_popout', 'select_proceed']
     
     def vars_for_template(self):
         return {'treatment': self.participant.vars.get('assigned_treatment')} 
@@ -55,7 +55,12 @@ class FramingTreatment(Page):
 
 class ManipulationCheck(Page):
     form_model = Player
-    form_fields = ['select_proceed', 'describe_tone', 'mentioned_points_1', 'mentioned_points_2', 'mentioned_points_3', 'overall_message']
+    form_fields = ['describe_tone', 
+                   'mentioned_points_1', 
+                   'mentioned_points_2', 
+                   'mentioned_points_3', 
+                   'mentioned_points_4',
+                   'overall_message']
 
     # @staticmethod
     # def vars_for_template(player: Player):
@@ -135,5 +140,5 @@ class PostTreatment(Page):
 page_sequence = [Welcome,
                 PreTreatment,
                 FramingTreatment,
-                ManipulationCheck,
-                PostTreatment]
+                PostTreatment, 
+                ManipulationCheck]
