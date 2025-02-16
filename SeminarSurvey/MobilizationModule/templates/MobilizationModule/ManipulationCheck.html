@@ -13,22 +13,13 @@ Seminar Survey - University Konstanz
 
 {% block content %}
 <div class="container">
-    <h2> "Manipulation Check" </h2> <br>
 
-    <div class="mb-3 bg-light border pt-2 pb-2 px-2 ">
-        <p>Welche der folgenden Punkte wurden in der Beschreibung des Mercosur-Abkommens erwähnt, die Sie gelesen haben? (Wählen Sie alle aus, die zutreffen.)</p>
-        <div><input type="checkbox" name="mentioned_points_1" value="1"> Das Abkommen wird das Wirtschaftswachstum fördern und Arbeitsplätze schaffen.</div>
-        <div><input type="checkbox" name="mentioned_points_2" value="1"> Das Abkommen zielt darauf ab, die Kosten für Verbraucher zu senken.</div>
-        <div><input type="checkbox" name="mentioned_points_3" value="1"> Kritiker warnen vor erhöhtem Wettbewerb für lokale Industrien.</div>
-        <div><input type="checkbox" name="mentioned_points_4" value="1"> Keiner der oben genannten Punkte.</div>
+    <div class="mb-3 bg-light border pt-2 pb-2 px-2">
+        {{formfield 'overall_tone'}}
     </div>
 
     <div class="mb-3 bg-light border pt-2 pb-2 px-2">
-        {{formfield 'overall_message'}}
-    </div>
-
-    <div class="mb-3 bg-light border pt-2 pb-2 px-2">
-        {{formfield 'describe_tone'}}
+        {{formfield 'impact_time'}}
     </div>
 
     <p>Bitte klicken Sie nun auf den "Weiter"-Button, um fortzufahren.</p>
@@ -37,4 +28,3 @@ Seminar Survey - University Konstanz
     </button>
 </div>
 {% endblock %}
-

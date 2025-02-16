@@ -13,7 +13,6 @@ Seminar Survey - University Konstanz
 
 {% block content %}
 <div class="container">
-    <h2> "Pre-Treatment" </h2> <br>
 
     <div class="mb-3 bg-light border pt-2 pb-2 px-2">
         {{formfield 'eco_poli_affiliation'}}
@@ -36,21 +35,28 @@ Seminar Survey - University Konstanz
     </div>
 
     <div class="mb-3 bg-light border pt-2 pb-2 px-2">
-        {{formfield 'trust_government'}}
+        {{formfield 'political_stance_trade'}}
     </div>
 
     <div class="mb-3 bg-light border pt-2 pb-2 px-2">
-        {{formfield 'trust_media'}}
+        {{formfield 'trust_institutions'}}
     </div>
 
     <div class="mb-3 bg-light border pt-2 pb-2 px-2">
-        <p>Haben Sie jemals eine der folgenden Maßnahmen in Bezug auf ein Handelsthema ergriffen?</p>
+        {{formfield 'interest_politics'}}
+    </div>
+
+    <div class="mb-3 bg-light border pt-2 pb-2 px-2">
+        <p>Haben Sie jemals eine der folgenden Handlungen im Zusammenhang mit einem Handelsthema durchgeführt?</p>
         {{formfield 'pre_talk_friends'}}
         {{formfield 'pre_share_socialmedia'}}
         {{formfield 'pre_consider_voting'}}
         {{formfield 'pre_support_petition'}}
         {{formfield 'pre_attend_protest'}}
         {{formfield 'pre_legal_action'}}
+        {{formfield 'pre_last_vote'}}
+        {{formfield 'pre_contact_politics'}}
+        {{formfield 'pre_boycott'}}
     </div>
 
 

@@ -2,16 +2,9 @@
 {% load otree static %}
 
 {% block styles %}
-
 {% endblock %}
 
 {% block scripts %}
-<script>
-   // Time stamp
-   var time = new Date();
-   var time = time.toISOString();
-   document.getElementById("time").value = time;  
-</script>
 {% endblock %}
 
 {% block title %}
@@ -20,19 +13,12 @@ Seminar Survey - University Konstanz
 
 {% block content %}
 <div class="container">
-    <h2> "Willkommen" </h2>
-    <hr>
+    <h2> "End-Page" </h2> 
+    <br>
 
-    <input id="time" type="hidden" name="time_start"/>
+    <p>Vielen Dank für Ihre Teilnahme.</p>
 
-    <hr>
-    <p> Es freut mich sehr Sie begrüßen zu dürfen. Herzlichen Dank für Ihre Teilnahme an dieser Befragung.</p>
-    
-    <p>Diese Studie analysiert die öffentliche Meinung zum Freihandelsabkommen zwischen der Europäischen Union und dem südamerikanischen Wirtschaftsbündnis Mercosur, dem Brasilien, Argentinien, Paraguay und Uruguay angehören. Nach 20 Jahren Verhandlungen wurde 2019 eine politische Einigung erzielt, doch die Ratifizierung durch die EU-Mitgliedstaaten steht weiterhin aus. Das Abkommen umfasst zentrale Aspekte wie die Reduzierung von Zöllen, Investitionsregelungen und umweltpolitische Bestimmungen.</p>
-
-
-    <p>Bitte klicken Sie nun auf den "Weiter/Next"-Button, um Ihr Einverständnis mit der Teilnahme an dieser Umfrage zu geben und die Umfrage zu beginnen.</p>
-    
+    <p>Bitte klicken Sie nun auf den "Weiter"-Button, um fortzufahren.</p>
     <button class="otree-btn-next btn btn-primary next-button otree-next-button">
         Weiter
     </button>
