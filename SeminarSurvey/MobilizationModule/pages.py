@@ -19,8 +19,11 @@ class Welcome(Page):
 class PreTreatment(Page):
     form_model = Player
     form_fields = ['eco_poli_affiliation', 
-                   'soci_poli_affiliation', 
-                   'concept_freetrade', 
+                   'soci_poli_affiliation']
+    
+class PreTreatment2(Page):
+    form_model = Player
+    form_fields = ['concept_freetrade', 
                    'mercosur_freetrade', 
                    'supportive_freetrade',
                    'political_stance_trade', 
