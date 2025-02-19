@@ -72,7 +72,7 @@ class Player(BasePlayer):
     trust_institutions = models.IntegerField(
         label="<b>Wie sehr vertrauen Sie Institutionen (z. B. Regierung, Medien), um faire und genaue Informationen über Handelsabkommen bereitzustellen?</b> <i>(1: Überhaupt nicht bis 10: Vollständig)</i>",
         choices=[(i, str(i)) for i in range(1, 11)],
-        widget=widgets.RadioSelectHorizontal,
+        #widget=widgets.RadioSelectHorizontal,
     )
 
     interest_politics = models.IntegerField(

@@ -85,7 +85,9 @@ class PostTreatment(Page):
 #Here we define in which ordering we want the pages to be shown. We always start with a Welcome page and end with an End page.
 page_sequence = [Welcome,
                 PreTreatment,
+                PreTreatmentII,
                 FramingTreatment,
-                PostTreatment, 
+                PostTreatment,
+                 
                 ManipulationCheck,
                 Bye]
