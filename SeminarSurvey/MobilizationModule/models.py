@@ -185,56 +185,56 @@ class Player(BasePlayer):
 ## posttreatment page 1
     #Wie wahrscheinlich ist es, dass Sie die folgenden Maßnahmen in Bezug auf das Mercosur-Abkommen ergreifen?
     post_talk_friends = models.IntegerField(
-        label="• Mit Freunden oder der Familie darüber sprechen:"
+        label="• Mit Freunden oder der Familie darüber sprechen:",
          # <i>1:Sehr Unwahrscheinlich bis 10:Sehr wahrscheinlich [zusätzlich 0 „Nicht sicher“]</i>" ,
         choices=[(i, str(i)) for i in range(1, 11)],
         #widget=widgets.RadioSelectHorizontal
     )
     post_share_socialmedia = models.IntegerField(
-        label="• Ihre Meinung in sozialen Medien teilen:"
+        label="• Ihre Meinung in sozialen Medien teilen:",
          # <i>1:Sehr Unwahrscheinlich bis 10:Sehr wahrscheinlich [zusätzlich 0 „Nicht sicher“]</i>",
         choices=[(i, str(i)) for i in range(1, 11)],
         #widget=widgets.RadioSelectHorizontal
     ) 
     post_consider_voting = models.IntegerField(
-        label="• Die Haltung einer Partei oder eines/er Kandidaten/in bei der Wahl berücksichtigen:"
+        label="• Die Haltung einer Partei oder eines/er Kandidaten/in bei der Wahl berücksichtigen:",
          # <i>1:Sehr Unwahrscheinlich bis 10:Sehr wahrscheinlich [zusätzlich 0 „Nicht sicher“]</i>",
         choices=[(i, str(i)) for i in range(1, 11)],
         #widget=widgets.RadioSelectHorizontal
     )
     
     post_support_petition = models.IntegerField(
-        label="• Eine Online-Petition unterstützten:"
+        label="• Eine Online-Petition unterstützten:",
          # <i>1:Sehr Unwahrscheinlich bis 10:Sehr wahrscheinlich [zusätzlich 0 „Nicht sicher“]</i>",
         choices=[(i, str(i)) for i in range(1, 11)],
         #widget=widgets.RadioSelectHorizontal
     )
     post_attend_protest = models.IntegerField(
-        label="• An einer Demonstration oder einem Protest teilnehmen:"
+        label="• An einer Demonstration oder einem Protest teilnehmen:",
          # <i>1:Sehr Unwahrscheinlich bis 10:Sehr wahrscheinlich [zusätzlich 0 „Nicht sicher“]</i>",
         choices=[(i, str(i)) for i in range(1, 11)],
         #widget=widgets.RadioSelectHorizontal
     )
     post_legal_action = models.IntegerField(
-        label="• Rechtliche Schritte etwa in Form einer Sammelklage einleiten:"
+        label="• Rechtliche Schritte etwa in Form einer Sammelklage einleiten:",
          # <i>1:Sehr Unwahrscheinlich bis 10:Sehr wahrscheinlich [zusätzlich 0 „Nicht sicher“]</i>",
         choices=[(i, str(i)) for i in range(1, 11)],
         #widget=widgets.RadioSelectHorizontal
     )
     post_next_vote = models.IntegerField(
-        label="• Bei der nächsten nationalen Wahl wählen:"
+        label="• Bei der nächsten nationalen Wahl wählen:",
          # <i>1:Sehr Unwahrscheinlich bis 10:Sehr wahrscheinlich [zusätzlich 0 „Nicht sicher“]</i>",
         choices=[(i, str(i)) for i in range(1, 11)],
         #widget=widgets.RadioSelectHorizontal
     )
     post_contact_politics = models.IntegerField(
-        label="• Einen Politiker/in oder einen offizielles Mitglied der Regierung  kontaktieren:"
+        label="• Einen Politiker/in oder einen offizielles Mitglied der Regierung  kontaktieren:",
          # <i>1:Sehr Unwahrscheinlich bis 10:Sehr wahrscheinlich [zusätzlich 0 „Nicht sicher“]</i>",
         choices=[(i, str(i)) for i in range(1, 11)],
         #widget=widgets.RadioSelectHorizontal
     )
     post_boycott = models.IntegerField(
-        label="• Bestimmte Produkte boykottieren:"
+        label="• Bestimmte Produkte boykottieren:",
          # <i>1:Sehr Unwahrscheinlich bis 10:Sehr wahrscheinlich [zusätzlich 0 „Nicht sicher“]</i>",
         choices=[(i, str(i)) for i in range(1, 11)],
         #widget=widgets.RadioSelectHorizontal

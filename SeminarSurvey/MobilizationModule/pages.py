@@ -31,7 +31,7 @@ class PreTreatment2(Page):
                    'trust_institutions', 
                    'interest_politics']
     
-class PreTreatment2(Page):
+class PreTreatment3(Page):
     form_model = Player
     form_fields = ['pre_talk_friends',
                    'pre_share_socialmedia',
