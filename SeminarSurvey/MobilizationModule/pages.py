@@ -21,6 +21,7 @@ class PreTreatment(Page):
     form_fields = ['eco_poli_affiliation', 
                    'soci_poli_affiliation']
     
+
 class PreTreatment2(Page):
     form_model = Player
     form_fields = ['concept_freetrade', 
@@ -28,8 +29,11 @@ class PreTreatment2(Page):
                    'supportive_freetrade',
                    'political_stance_trade', 
                    'trust_institutions', 
-                   'interest_politics',
-                   'pre_talk_friends',
+                   'interest_politics']
+    
+class PreTreatment2(Page):
+    form_model = Player
+    form_fields = ['pre_talk_friends',
                    'pre_share_socialmedia',
                    'pre_consider_voting',
                    'pre_support_petition',
@@ -78,19 +82,21 @@ class PostTreatment(Page):
                     'post_legal_action',
                     'post_next_vote',
                     'post_contact_politics',
-                    'post_boycott',
-                    'supportive_mercosur',
+                    'post_boycott']
+    
+class PostTreatment2(Page):
+    form_model = Player
+    form_fields = [ 'supportive_mercosur',
                     'convincing_arguments',
                     'important_mercosur_state',
                     'important_mercosur_you']
 
-
 #Here we define in which ordering we want the pages to be shown. We always start with a Welcome page and end with an End page.
 page_sequence = [Welcome,
                 PreTreatment,
-                PreTreatmentII,
+                PreTreatment2,
                 FramingTreatment,
                 PostTreatment,
-                 
+                PostTreatment2,
                 ManipulationCheck,
                 Bye]
